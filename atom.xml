@@ -4,7 +4,7 @@
   <title><![CDATA[Life's lessons]]></title>
   <link href="http://unshakeable.github.io/atom.xml" rel="self"/>
   <link href="http://unshakeable.github.io/"/>
-  <updated>2014-11-09T23:28:04-06:00</updated>
+  <updated>2014-11-10T18:17:52-06:00</updated>
   <id>http://unshakeable.github.io/</id>
   <author>
     <name><![CDATA[Dev]]></name>
@@ -14,14 +14,14 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Iterating Javascript Object Properties]]></title>
+    <title type="html"><![CDATA[Iterating Java Script Object Properties]]></title>
     <link href="http://unshakeable.github.io/blog/2014/11/09/iterating-javascript-object-properties/"/>
     <updated>2014-11-09T23:17:08-06:00</updated>
     <id>http://unshakeable.github.io/blog/2014/11/09/iterating-javascript-object-properties</id>
-    <content type="html"><![CDATA[<p>You can use for-in loop to iterate an object&rsquo;s properties. Only thing to be carefull is that this will also list inherited properties.
+    <content type="html"><![CDATA[<p>You can use for-in loop to iterate an object&rsquo;s properties. Only thing to be careful is that this will also list inherited properties.
 To filter inherited properties use hasOwnProperty() method.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -38,23 +38,24 @@ To filter inherited properties use hasOwnProperty() method.</p>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var parentObj = {
-</span><span class='line'>  prop1 : 1,
-</span><span class='line'>  prop2 : 2,
-</span><span class='line'>  prop3 : 3
-</span><span class='line'>}
-</span><span class='line'>var childObj = Object.create(parentObj);
-</span><span class='line'>childObj.prop4 = 4;
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">parentObj</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">prop1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">prop2</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">prop3</span> <span class="o">:</span> <span class="mi">3</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">childObj</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">parentObj</span><span class="p">);</span>
+</span><span class='line'><span class="nx">childObj</span><span class="p">.</span><span class="nx">prop4</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'>for(var prop in childObj){
-</span><span class='line'>  console.log(prop); // prop1, prop2, prop3
-</span><span class='line'>};
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">prop</span> <span class="k">in</span> <span class="nx">childObj</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prop</span><span class="p">);</span> <span class="c1">// prop1, prop2, prop3</span>
+</span><span class='line'><span class="p">};</span>
 </span><span class='line'>
-</span><span class='line'>for(var prop in childObj){
-</span><span class='line'>  if(childObj.hasOwnProperty(prop)){
-</span><span class='line'>      console.log(prop); //prop4
-</span><span class='line'>  }
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">prop</span> <span class="k">in</span> <span class="nx">childObj</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">childObj</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">prop</span><span class="p">)){</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prop</span><span class="p">);</span> <span class="c1">//prop4</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
@@ -64,20 +65,21 @@ To filter inherited properties use hasOwnProperty() method.</p>
     <link href="http://unshakeable.github.io/blog/2014/11/09/finding-javascript-objects-length/"/>
     <updated>2014-11-09T23:00:51-06:00</updated>
     <id>http://unshakeable.github.io/blog/2014/11/09/finding-javascript-objects-length</id>
-    <content type="html"><![CDATA[<p>Although, JavaScript Objects have a build-in &ldquo;lenght&rdquo; property, it will not give you the exact number of properties. The trick is to use Object.keys(objectName).length.</p>
+    <content type="html"><![CDATA[<p>Although, JavaScript Objects have a build-in &ldquo;length&rdquo; property, it will not give you the exact number of properties. The trick is to use Object.keys(objectName).length.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var myObj = {
-</span><span class='line'>  a : 1,
-</span><span class='line'>  b : 2,
-</span><span class='line'>  c : 3
-</span><span class='line'>}
-</span><span class='line'>var myObjLength = Object.keys(myObj).length //3</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">a</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">b</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">c</span> <span class="o">:</span> <span class="mi">3</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">myObjLength</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">myObj</span><span class="p">).</span><span class="nx">length</span> <span class="c1">//3</span>
+</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>
