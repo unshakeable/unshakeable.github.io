@@ -4,7 +4,7 @@
   <title><![CDATA[Life's lessons]]></title>
   <link href="http://unshakeable.github.io/atom.xml" rel="self"/>
   <link href="http://unshakeable.github.io/"/>
-  <updated>2014-11-10T18:17:52-06:00</updated>
+  <updated>2014-11-15T16:14:48-06:00</updated>
   <id>http://unshakeable.github.io/</id>
   <author>
     <name><![CDATA[Dev]]></name>
@@ -12,6 +12,147 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Unix Commands]]></title>
+    <link href="http://unshakeable.github.io/blog/2014/11/15/unix-commands/"/>
+    <updated>2014-11-15T15:29:15-06:00</updated>
+    <id>http://unshakeable.github.io/blog/2014/11/15/unix-commands</id>
+    <content type="html"><![CDATA[<p>Here are most common Unix commands:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tree .git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>displays content of .git directory in tree format.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>clear </span></code></pre></td></tr></table></div></figure>
+
+
+<p>clears the screen</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls or ll</span></code></pre></td></tr></table></div></figure>
+
+
+<p>displays the content of current directory.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git Commands]]></title>
+    <link href="http://unshakeable.github.io/blog/2014/11/15/git-commands/"/>
+    <updated>2014-11-15T15:05:31-06:00</updated>
+    <id>http://unshakeable.github.io/blog/2014/11/15/git-commands</id>
+    <content type="html"><![CDATA[<p>Git is a distributed version control system for code. Here are the most common Git commands with there brief description.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git --version</span></code></pre></td></tr></table></div></figure>
+
+
+<p>above command will display the version of installed git.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git init</span></code></pre></td></tr></table></div></figure>
+
+
+<p>above command initiate git repository in the current directory. If you open the folder in windows explorer, you will see a hidden .git folder.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git status</span></code></pre></td></tr></table></div></figure>
+
+
+<p>displays the status of files in repository. Untracked or modified files will be displayed in red.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add first.txt \\Enable tracking for first.txt only.
+</span><span class='line'>git add . \\Enable tracking for all the files in current directory.
+</span><span class='line'>git add -rm first.txt \\removes tracking for first.txt.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add command is used for enabling tracking for files.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m "my first commit" \\Adds all tracked files to staging area.</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Manipulating JavaScript Arrays]]></title>
+    <link href="http://unshakeable.github.io/blog/2014/11/10/manipulating-javascript-arrays/"/>
+    <updated>2014-11-10T22:07:11-06:00</updated>
+    <id>http://unshakeable.github.io/blog/2014/11/10/manipulating-javascript-arrays</id>
+    <content type="html"><![CDATA[<p>JavaScript provides static and instance methods on Array and Array.prototype respectively for manipulating arrays.</p>
+
+<h3>sort(Instance method):</h3>
+
+<p>You can sort array using this method. You can provide a callback function to customize the sorting behavior.</p>
+
+<figure class='code'><figcaption><span>Ascending order</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+</span><span class='line'><span class="nx">myArr</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span> <span class="c1">//[1, 2, 4, 5, 5, 6, 7]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Descending order</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+</span><span class='line'><span class="nx">myArr</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">y</span> <span class="o">-</span> <span class="nx">x</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span> <span class="c1">//[7, 6, 5, 5, 4, 2, 1]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>forEach(Instance method):</h3>
+
+<p>You can use forEach method to iterate a array.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">];</span>
+</span><span class='line'><span class="nx">myArr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">idx</span><span class="p">,</span> <span class="nx">orgArr</span><span class="p">){</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span> <span class="c1">//4,5,7</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span> <span class="c1">//0,1,2</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">orgArr</span><span class="p">);</span> <span class="c1">//[4,5,7][4,5,7][4,5,7]</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>slice(Instance method):</h3>
+
+<p>You can slice a array using this method. It return a new array and the original array is not effected.</p>
+
+<figure class='code'><figcaption><span>Syntax</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[].slice(startIdx, endIdx)
+</span><span class='line'>startIdx : starting index for slicing.
+</span><span class='line'>endIdx : Ending index to stop slicing. endIdx is excluded from the output.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+</span><span class='line'><span class="nx">myArr</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">//[7,2]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Iterating Java Script Object Properties]]></title>
