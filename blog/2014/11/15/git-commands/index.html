@@ -78,7 +78,7 @@ git --version above &hellip;">
 
 
 
-<time class='entry-date' datetime='2014-11-15T15:05:31-06:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:05 pm</span></time>
+<time class='entry-date' datetime='2014-11-15T16:05:31-05:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:05 pm</span></time>
         
       </p>
     
@@ -107,16 +107,53 @@ git --version above &hellip;">
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git add first.txt \\Enable tracking for first.txt only.
-</span><span class='line'>git add . \\Enable tracking for all the files in current directory.
-</span><span class='line'>git add -rm first.txt \\removes tracking for first.txt.</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>git add . \\Enable tracking for all the files in current directory.</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Add command is used for enabling tracking for files.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m "my first commit" \\Adds all tracked files to staging area.</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git rm --cached first.txt \\removes tracking for first.txt.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m "your message" \\Adds all tracked files to staging area.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global user.name 'unshakable'
+</span><span class='line'>git config --global user.email 'foo.bar@gmail.com' </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log
+</span><span class='line'>Shift + zz : to exit out of log command.
+</span><span class='line'>
+</span><span class='line'>git log --oneline //display only messages used while committing.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git diff
+</span><span class='line'>git diff -cached</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Pull request: Is done by other folks after forking your project and improving it. It basically means the person is requesting you to accept his changes after review and merge them to main repository.</p>
+
+<iframe src="http://showterm.io/7b5f8d42ba021511e627e" width="640" height="480"></iframe>
 
 </div>
 
@@ -133,7 +170,7 @@ git --version above &hellip;">
 
 
 
-<time class='entry-date' datetime='2014-11-15T15:05:31-06:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:05 pm</span></time>
+<time class='entry-date' datetime='2014-11-15T16:05:31-05:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:05 pm</span></time>
       
 
 
@@ -168,6 +205,10 @@ git --version above &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/20/octopress-and-github-pages/">Octopress and Github Pages</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/11/15/unix-commands/">Unix Commands</a>
       </li>
     
@@ -180,11 +221,7 @@ git --version above &hellip;">
       </li>
     
       <li class="post">
-        <a href="/blog/2014/11/09/iterating-javascript-object-properties/">Iterating Java Script Object Properties</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/11/09/finding-javascript-objects-length/">Finding JavaScript Object&#8217;s Length.</a>
+        <a href="/blog/2014/11/10/iterating-javascript-object-properties/">Iterating Java Script Object Properties</a>
       </li>
     
   </ul>
@@ -230,7 +267,7 @@ git --version above &hellip;">
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Dev -
+  Copyright &copy; 2015 - Dev -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
