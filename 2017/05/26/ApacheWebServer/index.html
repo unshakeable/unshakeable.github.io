@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ApacheWebServer | Unshakeable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Apache on-line documentation:
+http://httpd.apache.org/docs/
+
+How to strip comments from httpd.conf1$ cat httpd.conf | grep -v &apos;^$\|^#&apos; &amp;gt;&amp;gt; httpd-nocomments.conf
+How to enable SSL
+Good Youtube vid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ApacheWebServer">
+<meta property="og:url" content="http://yoursite.com/2017/05/26/ApacheWebServer/index.html">
+<meta property="og:site_name" content="Unshakeable">
+<meta property="og:description" content="Apache on-line documentation:
+http://httpd.apache.org/docs/
+
+How to strip comments from httpd.conf1$ cat httpd.conf | grep -v &apos;^$\|^#&apos; &amp;gt;&amp;gt; httpd-nocomments.conf
+How to enable SSL
+Good Youtube vid">
+<meta property="og:updated_time" content="2017-05-26T15:35:46.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ApacheWebServer">
+<meta name="twitter:description" content="Apache on-line documentation:
+http://httpd.apache.org/docs/
+
+How to strip comments from httpd.conf1$ cat httpd.conf | grep -v &apos;^$\|^#&apos; &amp;gt;&amp;gt; httpd-nocomments.conf
+How to enable SSL
+Good Youtube vid">
+  
+    <link rel="alternate" href="/atom.xml" title="Unshakeable" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Unshakeable</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Life Lessons</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ApacheWebServer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/26/ApacheWebServer/" class="article-date">
+  <time datetime="2017-05-26T14:59:34.000Z" itemprop="datePublished">2017-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ApacheWebServer
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Apache-on-line-documentation"><a href="#Apache-on-line-documentation" class="headerlink" title="Apache on-line documentation:"></a>Apache on-line documentation:</h2><ul>
+<li><a href="http://httpd.apache.org/docs/" target="_blank" rel="external">http://httpd.apache.org/docs/</a></li>
+</ul>
+<h2 id="How-to-strip-comments-from-httpd-conf"><a href="#How-to-strip-comments-from-httpd-conf" class="headerlink" title="How to strip comments from httpd.conf"></a>How to strip comments from httpd.conf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat httpd.conf | grep -v <span class="string">'^$\|^#'</span> &gt;&gt; httpd-nocomments.conf</div></pre></td></tr></table></figure>
+<h2 id="How-to-enable-SSL"><a href="#How-to-enable-SSL" class="headerlink" title="How to enable SSL"></a>How to enable SSL</h2><ul>
+<li>Good Youtube video explanation: <a href="https://www.youtube.com/watch?v=YR6-6XUC3sY&amp;t=1672s#t=1126.767257" target="_blank" rel="external">https://www.youtube.com/watch?v=YR6-6XUC3sY&amp;t=1672s#t=1126.767257</a></li>
+<li>Install mod_ssl.so module</li>
+<li>Your SSL configuration(/*/conf.d/ssl.conf) will need to contain, at minimum, the following directives.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line"></div><div class="line">Listen 443</div><div class="line">&lt;VirtualHost *:443&gt;</div><div class="line">    ServerName www.example.com</div><div class="line">    SSLEngine on</div><div class="line">    SSLCertificateFile <span class="string">"/path/to/www.example.com.cert"</span></div><div class="line">    SSLCertificateKeyFile <span class="string">"/path/to/www.example.com.key"</span></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/26/ApacheWebServer/" data-id="cj3vnbljv0001k4xmxc4hdu90" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/26/Unix-Commands/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Unix-Commands
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/21/Git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/owasp/">OWASP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/javascript-patterns/">javascript-patterns</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/Unix-Commands/">Unix-Commands</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/ApacheWebServer/">ApacheWebServer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/21/Git/">Git</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Mr. Unshakeable<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

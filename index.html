@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unshakeable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Unshakeable">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Unshakeable">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unshakeable">
+  
+    <link rel="alternate" href="/atom.xml" title="Unshakeable" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Unshakeable</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Life Lessons</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-owasp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/owasp/" class="article-date">
+  <time datetime="2017-06-13T14:11:07.000Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/13/owasp/">OWASP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTTP-Strict-Transport-Security-HSTS"><a href="#HTTP-Strict-Transport-Security-HSTS" class="headerlink" title="HTTP Strict Transport Security(HSTS):"></a>HTTP Strict Transport Security(HSTS):</h2><ul>
+<li>HSTS browser header tell browser to load a site only in secure(HTTPS) scheme.</li>
+<li>It is based on Trust On First Request(TOFU) paradigm</li>
+<li>1st request:<ul>
+<li>HTTP Status: 301 with Location header.</li>
+<li>Response will set header: Strict-Transport-Security: max-age=31536000; includeSubdomains; preload</li>
+</ul>
+</li>
+<li>2nd request<ul>
+<li>HTTP Status: 307 Internal redirect with Location header.</li>
+<li>Response will set header: Non-Authoritative-Reason: HSTS</li>
+</ul>
+</li>
+<li>Max-age: <ul>
+<li>declares the period for which insecure requests cannot be made.</li>
+<li>period is in seconds.</li>
+<li>31536000 seconds is equal to 1 year.</li>
+<li>Sliding expiration.</li>
+</ul>
+</li>
+<li>includeSubdomains<ul>
+<li>The scope of HSTS can be extended to all sub domains.</li>
+<li>This is required for the preload attribute</li>
+</ul>
+</li>
+<li>Tools:<ul>
+<li>chrome://net-internals/#hsts : Use this page to manually set HSTS header in chrome.</li>
+<li><a href="https://hstspreload.org/" target="_blank" rel="external">https://hstspreload.org/</a> : You can preload HSTS so that it is baked in the browser itself by registering at this site. This eliminates TOFU weakness.</li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP-Public-Key-Pinning-HPKP"><a href="#HTTP-Public-Key-Pinning-HPKP" class="headerlink" title="HTTP Public Key Pinning(HPKP):"></a>HTTP Public Key Pinning(HPKP):</h2><ul>
+<li>Rouge certificate</li>
+<li>Allows trusted certificates to be white listed</li>
+<li>Response will set header:<br>Public-Key-Pins: pin-sha256=[pin 1];pin-sha256=[pin 2] max-age=2592000; report-url=[url]; includeSubdomains</li>
+</ul>
+<h2 id="CSP-Header"><a href="#CSP-Header" class="headerlink" title="CSP Header"></a>CSP Header</h2><ul>
+<li>Click jacking</li>
+</ul>
+<p>Content-Security-Policy:<br>script-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’[uris];style-src ‘self’ ‘unsafe-inline’[uris];img-src ‘self’[uris];font-src ‘self’[uris];report-url[uri]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/13/owasp/" data-id="cj3vnbllj000ak4xmcwgy4yjf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-patterns" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/26/javascript-patterns/" class="article-date">
+  <time datetime="2017-05-26T20:21:06.000Z" itemprop="datePublished">2017-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/26/javascript-patterns/">javascript-patterns</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Pattern-talk"><a href="#Pattern-talk" class="headerlink" title="Pattern talk"></a>Pattern talk</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=8ii868uKjII" target="_blank" rel="external">https://www.youtube.com/watch?v=8ii868uKjII</a></li>
+<li><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/" target="_blank" rel="external">https://addyosmani.com/resources/essentialjsdesignpatterns/book/</a></li>
+<li><a href="https://www.youtube.com/watch?v=l6wzsWkNZ7k" target="_blank" rel="external">https://www.youtube.com/watch?v=l6wzsWkNZ7k</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/26/javascript-patterns/" data-id="cj3vnblkh0004k4xmw2duqype" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Unix-Commands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/26/Unix-Commands/" class="article-date">
+  <time datetime="2017-05-26T15:43:30.000Z" itemprop="datePublished">2017-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/26/Unix-Commands/">Unix-Commands</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>pwd: Print Working Directory</p>
+</li>
+<li><p>clear: clear the screen</p>
+</li>
+<li><p>ls -ltr: list</p>
+</li>
+<li><p>diff: show difference between files</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$diff</span> httpd.conf httpd.conf.bkup</div></pre></td></tr></table></figure>
+</li>
+<li><p>mkdir: make directory</p>
+</li>
+</ul>
+<p>-touch: update the timestamp. It creates the file if not already existing.</p>
+<ul>
+<li><p>cd: change to home directory</p>
+</li>
+<li><p>cd\: change to root directory</p>
+</li>
+<li><p>df: find disk usage</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ df -h</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/26/Unix-Commands/" data-id="cj3vnblkf0003k4xmikbzjwps" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ApacheWebServer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/26/ApacheWebServer/" class="article-date">
+  <time datetime="2017-05-26T14:59:34.000Z" itemprop="datePublished">2017-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/26/ApacheWebServer/">ApacheWebServer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Apache-on-line-documentation"><a href="#Apache-on-line-documentation" class="headerlink" title="Apache on-line documentation:"></a>Apache on-line documentation:</h2><ul>
+<li><a href="http://httpd.apache.org/docs/" target="_blank" rel="external">http://httpd.apache.org/docs/</a></li>
+</ul>
+<h2 id="How-to-strip-comments-from-httpd-conf"><a href="#How-to-strip-comments-from-httpd-conf" class="headerlink" title="How to strip comments from httpd.conf"></a>How to strip comments from httpd.conf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat httpd.conf | grep -v <span class="string">'^$\|^#'</span> &gt;&gt; httpd-nocomments.conf</div></pre></td></tr></table></figure>
+<h2 id="How-to-enable-SSL"><a href="#How-to-enable-SSL" class="headerlink" title="How to enable SSL"></a>How to enable SSL</h2><ul>
+<li>Good Youtube video explanation: <a href="https://www.youtube.com/watch?v=YR6-6XUC3sY&amp;t=1672s#t=1126.767257" target="_blank" rel="external">https://www.youtube.com/watch?v=YR6-6XUC3sY&amp;t=1672s#t=1126.767257</a></li>
+<li>Install mod_ssl.so module</li>
+<li>Your SSL configuration(/*/conf.d/ssl.conf) will need to contain, at minimum, the following directives.<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line"></div><div class="line">Listen 443</div><div class="line">&lt;VirtualHost *:443&gt;</div><div class="line">    ServerName www.example.com</div><div class="line">    SSLEngine on</div><div class="line">    SSLCertificateFile <span class="string">"/path/to/www.example.com.cert"</span></div><div class="line">    SSLCertificateKeyFile <span class="string">"/path/to/www.example.com.key"</span></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/26/ApacheWebServer/" data-id="cj3vnbljv0001k4xmxc4hdu90" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/21/Git/" class="article-date">
+  <time datetime="2017-02-21T14:57:47.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/Git/">Git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Distributed Version Control(DVCS) e.g. Git, Mercurial(Hg), BitKeeper, Bazaar.</li>
+<li>Linus Torvalds created Linux and Git.</li>
+<li>Msysgit is good git version for Windows.</li>
+<li>Every object in Git has unique SHA1 key</li>
+</ul>
+<h2 id="Good-links"><a href="#Good-links" class="headerlink" title="Good links:"></a>Good links:</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=Y9XZQO1n_7c" target="_blank" rel="external">https://www.youtube.com/watch?v=Y9XZQO1n_7c</a></li>
+</ul>
+<h2 id="Porcelain-Commands"><a href="#Porcelain-Commands" class="headerlink" title="Porcelain Commands:"></a>Porcelain Commands:</h2><ul>
+<li>Add</li>
+<li>Commit</li>
+<li>Push</li>
+<li>Fetch</li>
+<li>Pull</li>
+<li>Branch</li>
+<li>Checkout</li>
+<li>Merge</li>
+<li>Rebase</li>
+</ul>
+<h2 id="Plumbing-Commands"><a href="#Plumbing-Commands" class="headerlink" title="Plumbing Commands:"></a>Plumbing Commands:</h2><ul>
+<li>Cat-file</li>
+<li>Hash-object</li>
+<li>Count-objects</li>
+</ul>
+<h2 id="Install-git-on-Linux-system"><a href="#Install-git-on-Linux-system" class="headerlink" title="Install git on Linux system:"></a>Install git on Linux system:</h2><ul>
+<li>Debian/Ubuntu distro: apt-get install git-core</li>
+<li>Fedora distro: yum install git-core</li>
+</ul>
+<h2 id="Git-version-command"><a href="#Git-version-command" class="headerlink" title="Git version command:"></a>Git version command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git --version</div><div class="line">git version 2.11.1.windows.1</div></pre></td></tr></table></figure>
+<h2 id="Get-help-command"><a href="#Get-help-command" class="headerlink" title="Get help command:"></a>Get help command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --help</div></pre></td></tr></table></figure>
+<h2 id="Git-areas-Mnemonic-WIRES"><a href="#Git-areas-Mnemonic-WIRES" class="headerlink" title="Git areas(Mnemonic WIRES)"></a>Git areas(Mnemonic WIRES)</h2><ul>
+<li>Working-Area</li>
+<li>Index-Area</li>
+<li>Repository-Area (Local m/c)</li>
+<li>External-Repository-Area ( Remote m/c)</li>
+<li>Stash-Area </li>
+</ul>
+<h2 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers:"></a>Pointers:</h2><ul>
+<li>HEAD: Pointer to a pointer. Points to current branch.</li>
+<li>Master: Pointer to default local branch.</li>
+<li>Origin: Pointer to default remote branch.</li>
+<li>Stash: Pointer to stashed content.</li>
+<li>BranchName: Pointer to branchName SHA1 hash.</li>
+</ul>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/log/*.log</div></pre></td></tr></table></figure>
+<h2 id="Git-hash-object-command"><a href="#Git-hash-object-command" class="headerlink" title="Git hash-object command:"></a>Git hash-object command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo &quot;Apple Pie&quot;|git hash-object --stdin</div><div class="line">23991897e13e47ed0adb91a0082c31c82fe0cbe5</div></pre></td></tr></table></figure>
+<h2 id="Git-init-command"><a href="#Git-init-command" class="headerlink" title="Git init command:"></a>Git init command:</h2><ul>
+<li>Initiates a Git repository</li>
+<li>Adds a .Git folder.</li>
+<li>You will only find one instance of .git directory per repository. It is not repeated in sub directories similar to SVN.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git init</div><div class="line">Initialized empty Git repository in C:/Users/unshakeable/MyGit/.git/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-hash-object-Command-with-w-flag"><a href="#Git-hash-object-Command-with-w-flag" class="headerlink" title="Git hash-object Command with -w flag:"></a>Git hash-object Command with -w flag:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo &quot;Apple Pie&quot;|git hash-object --stdin -w</div><div class="line">23991897e13e47ed0adb91a0082c31c82fe0cbe5</div></pre></td></tr></table></figure>
+<p><img src="/images/GitHash.jpg" alt="GitHash"></p>
+<ul>
+<li>MyGit&gt;.git&gt;objects directory stores all Git objects</li>
+<li>You can ignore info and pack directories</li>
+</ul>
+<h2 id="Git-cat-file-command-with-t-flag"><a href="#Git-cat-file-command-with-t-flag" class="headerlink" title="Git cat-file command with -t flag:"></a>Git cat-file command with -t flag:</h2><ul>
+<li>Use cat-file to check the value stored in Hash-map against the SHA1 key</li>
+<li>“t flag” is used to display type.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -t</div><div class="line">blob</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-cat-file-command-with-p-flag"><a href="#Git-cat-file-command-with-p-flag" class="headerlink" title="Git cat-file command with -p flag:"></a>Git cat-file command with -p flag:</h2><ul>
+<li>“p flag” is used for pretty printing<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -p</div><div class="line">Apple Pie</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Sample-Folder-File-structure"><a href="#Sample-Folder-File-structure" class="headerlink" title="Sample Folder/File structure:"></a>Sample Folder/File structure:</h2><ul>
+<li>Create “cookbook” directory with below structure:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ tree</div><div class="line">.</div><div class="line">|-- .git</div><div class="line">|-- menu.txt</div><div class="line">`-- recipes</div><div class="line">    |-- README.txt</div><div class="line">    `-- apple_pie.txt</div><div class="line"></div><div class="line">1 directory, 3 files</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-status-command"><a href="#Git-status-command" class="headerlink" title="Git status command:"></a>Git status command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ git status</div><div class="line">On branch master</div><div class="line"></div><div class="line">Initial commit</div><div class="line"></div><div class="line">Untracked files:</div><div class="line">  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</div><div class="line"></div><div class="line">        menu.txt</div><div class="line">        recipes/</div><div class="line"></div><div class="line">nothing added to commit but untracked files present (use &quot;git add&quot; to track)</div></pre></td></tr></table></figure>
+<h2 id="Git-log-command"><a href="#Git-log-command" class="headerlink" title="Git log command:"></a>Git log command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git log </div><div class="line">:q to quit log output, Ctrl+F, Ctrl+b</div><div class="line">$ git log --oneline</div><div class="line">$ git log --oneline | wc -l</div></pre></td></tr></table></figure>
+<ul>
+<li>Most commonly used:git god<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --graph --oneline --decorate --all</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-shortlog-command"><a href="#Git-shortlog-command" class="headerlink" title="Git shortlog command:"></a>Git shortlog command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git shortlog</div><div class="line">$ git shortlog -sne</div></pre></td></tr></table></figure>
+<h2 id="Git-add-command"><a href="#Git-add-command" class="headerlink" title="Git add command:"></a>Git add command:</h2><ul>
+<li><p>used to stage a file i.e move from Working-Area to Index-Area.</p>
+</li>
+<li><p>Add all new files and modified files to staging area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add .</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add new file to staging area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add -u</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add all files to staging area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add -A</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add all html files to staging area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add *.html</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-rm-–cached-command"><a href="#Git-rm-–cached-command" class="headerlink" title="Git rm –cached command:"></a>Git rm –cached command:</h2><ul>
+<li><p>Used to unstage a file i.e deletes the file from Index-Area region only.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git rm --cached menu.txt</div><div class="line">rm &apos;menu.txt&apos;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Deleting file from both Index-Area and Working-Area. Warning will be displayed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm &lt;fileName&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Force delete file from both Index-Area and Working-Area </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rm f</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-clean"><a href="#Git-clean" class="headerlink" title="Git clean"></a>Git clean</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git clean -n</div><div class="line">$ git clean -f</div></pre></td></tr></table></figure>
+<h2 id="Git-checkout-command"><a href="#Git-checkout-command" class="headerlink" title="Git checkout command:"></a>Git checkout command:</h2><ul>
+<li>Used to move a file from Index-Area to Working-Area.</li>
+<li>Changes in Working-Area will be overwritten.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- menu.txt</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-Configuration"><a href="#Git-Configuration" class="headerlink" title="Git Configuration:"></a>Git Configuration:</h2><p>Git configuration can be stored at 3 places. Git config is hierarchical in nature. Below is the order of hierarchy:</p>
+<ul>
+<li>System-level configuration(Rarely used): git config –system [config file is stored at C:\Program Files\Git\etc\gitconfig]</li>
+<li>User-level git configuration: git config –global [config file is stored at C:\Users\helloGuy.gitconfig]</li>
+<li>Repository-level git configuration: git config [config file is stored at C:\Users\helloGuy\Code.git\config]</li>
+</ul>
+<h3 id="Common-user-level-git-configuration"><a href="#Common-user-level-git-configuration" class="headerlink" title="Common user-level git configuration:"></a>Common user-level git configuration:</h3><ul>
+<li><p>Add user.name to global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;helloGuy&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add user.email to global git config:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.email &quot;hello.world@gmail.com&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add help.autocorrect to global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global help.autocorrect 1</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add color attributes to global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global color.ui auto</div><div class="line">$ git config --global color.status auto</div><div class="line">$ git config --global color.branch auto</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add core.autocrlf to global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.autocrlf true</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add branch.autosetuprebase to global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global branch.autosetuprebase always</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add default diff algorithm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global diff.algorithm histogram</div><div class="line">$ git config --global diff.algorithm patience</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add alias for commonly used commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.god &quot;log --graph --oneline --decorate --all&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Configure Beyond Compare as diff-tool:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global diff.tool bc3</div><div class="line">$ git config --global difftool.bc3.path &quot;c:/Program Files/Beyond Compare 4/bcomp.exe&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Configure Beyond Compare as merge-tool:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global merge.tool=bc3</div><div class="line">$ git config --global mergetool.bc3.path=c:/Program Files/Beyond Compare 4/bcomp.exe</div></pre></td></tr></table></figure>
+</li>
+<li><p>Show all global git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git config --global --list</div><div class="line">user.name=helloGuy</div><div class="line">user.email=hello.world@gmail.com</div><div class="line">core.editor=notepad++</div><div class="line">core.autocrlf=true</div><div class="line">help.autocorrect=1</div><div class="line">color.ui=auto</div></pre></td></tr></table></figure>
+</li>
+<li><p>Remove user.name from repository git config: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --unset user.name</div></pre></td></tr></table></figure>
+</li>
+<li><p>Show all repository level git config: This will list all config properties from all 3 scopes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --list</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-commit-command"><a href="#Git-commit-command" class="headerlink" title="Git commit command:"></a>Git commit command:</h2><ul>
+<li>What is a commit?<ul>
+<li>SHA1 to a tree</li>
+<li>Author name</li>
+<li>Commit date</li>
+<li>Commit message</li>
+<li>Parent: used for versioning</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;my first commit&quot;</div><div class="line">[master (root-commit) 2bde229] my first commit</div><div class="line">3 files changed, 3 insertions(+)</div><div class="line">create mode 100644 menu.txt</div><div class="line">create mode 100644 recipes/README.txt</div><div class="line">create mode 100644 recipes/apple_pie.txt</div></pre></td></tr></table></figure>
+<p><img src="/images/GitObjectModal1.jpg" alt="Git Object Modal"><br><img src="/images/GitObjectModal2.jpg" alt="Git Object Modal"></p>
+<h2 id="Git-object-model-Structure-of-the-initial-commit"><a href="#Git-object-model-Structure-of-the-initial-commit" class="headerlink" title="Git object model: Structure of the initial commit"></a>Git object model: Structure of the initial commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git cat-file 2bde2295ed4b1d2eefaa0486cf098d8669621a50 -t</div><div class="line">commit</div><div class="line"></div><div class="line">$ git cat-file 2bde2295ed4b1d2eefaa0486cf098d8669621a50 -p</div><div class="line">tree be4d5bfce489a2591e7fed5c672f9e52cd695a43</div><div class="line">author Unshakeable &lt;unshakeable@gmail.com&gt; 1487695379 -0500</div><div class="line">committer Unshakeable &lt;unshakeable@gmail.com&gt; 1487695379 -0500</div><div class="line"></div><div class="line">my first commit</div></pre></td></tr></table></figure>
+<h2 id="Git-object-model-Structure-of-subsequent-commits-versioning"><a href="#Git-object-model-Structure-of-subsequent-commits-versioning" class="headerlink" title="Git object model: Structure of subsequent commits(versioning)"></a>Git object model: Structure of subsequent commits(versioning)</h2><ul>
+<li>From 2nd commit onwards, you have additional “parent” field, which points to previous commit.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git cat-file f2b32d8d5f262f035e0090c7b7d2161f2ff26f45 -t</div><div class="line">commit</div><div class="line"></div><div class="line">$ git cat-file f2b32d8d5f262f035e0090c7b7d2161f2ff26f45 -p</div><div class="line">tree 4e100b23f2cf34b2931f8131aa8219a3419d6d60</div><div class="line">parent 2bde2295ed4b1d2eefaa0486cf098d8669621a50</div><div class="line">author Unshakeable &lt;unshakeable@gmail.com&gt; 1487704250 -0500</div><div class="line">committer Unshakeable &lt;unshakeable@gmail.com&gt; 1487704250 -0500</div><div class="line"></div><div class="line">my second commit</div></pre></td></tr></table></figure>
+<h2 id="Git-object-model-Structure-of-tree"><a href="#Git-object-model-Structure-of-tree" class="headerlink" title="Git object model: Structure of tree"></a>Git object model: Structure of tree</h2><ul>
+<li>Tree object can point to files and other trees<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git cat-file be4d5bfce489a2591e7fed5c672f9e52cd695a43 -t</div><div class="line">tree</div><div class="line"></div><div class="line">$ git cat-file be4d5bfce489a2591e7fed5c672f9e52cd695a43 -p</div><div class="line">100644 blob 23991897e13e47ed0adb91a0082c31c82fe0cbe5    menu.txt</div><div class="line">040000 tree 3ee76fde69b730530f1682f1f51789e89cf30500    recipes</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-object-model-Structure-of-blob"><a href="#Git-object-model-Structure-of-blob" class="headerlink" title="Git object model: Structure of blob"></a>Git object model: Structure of blob</h2><ul>
+<li>File name is not stored in blob, but in the tree pointing to it.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -t</div><div class="line">blob</div><div class="line"></div><div class="line">$ git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -p</div><div class="line">Apple Pie</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-count-objects-command"><a href="#Git-count-objects-command" class="headerlink" title="Git count-objects command:"></a>Git count-objects command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git count-objects</div><div class="line">8 objects, 0 kilobytes</div></pre></td></tr></table></figure>
+<h2 id="Git-Tags"><a href="#Git-Tags" class="headerlink" title="Git Tags:"></a>Git Tags:</h2><ul>
+<li>Tags are like labels/references.</li>
+<li>A tag is like a branch that doesn’t move.</li>
+<li>Git has two type of Tags.<ul>
+<li>Regular or lightweight tags </li>
+<li>Annotated tags</li>
+</ul>
+</li>
+</ul>
+<h2 id="Annotated-tags-comes-with-message"><a href="#Annotated-tags-comes-with-message" class="headerlink" title="Annotated tags: comes with message"></a>Annotated tags: comes with message</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -a myTag -m &quot;I love tags&quot;</div></pre></td></tr></table></figure>
+<h2 id="Lightweight-Regular-tag"><a href="#Lightweight-Regular-tag" class="headerlink" title="Lightweight/Regular tag:"></a>Lightweight/Regular tag:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag myLightTag</div></pre></td></tr></table></figure>
+<h1 id="Get-list-of-Git-tags"><a href="#Get-list-of-Git-tags" class="headerlink" title="Get list of Git tags:"></a>Get list of Git tags:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">myTag</div><div class="line">myLightTag</div></pre></td></tr></table></figure>
+<h2 id="Git-object-model-Structure-of-Tag"><a href="#Git-object-model-Structure-of-Tag" class="headerlink" title="Git object model: Structure of Tag"></a>Git object model: Structure of Tag</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ git cat-file myTag -t</div><div class="line">tag</div><div class="line"></div><div class="line">$ git cat-file myTag -p</div><div class="line">object f2b32d8d5f262f035e0090c7b7d2161f2ff26f45</div><div class="line">type commit</div><div class="line">tag myTag</div><div class="line">tagger Unshakeable &lt;unshakeable@gmail.com&gt; 1487705105 -0500</div><div class="line"></div><div class="line">I love tags</div></pre></td></tr></table></figure>
+<h2 id="Stash-is-useful-when-we-have-uncommitted-changes-and-need-to-switch-branch"><a href="#Stash-is-useful-when-we-have-uncommitted-changes-and-need-to-switch-branch" class="headerlink" title="Stash: is useful when we have uncommitted changes and need to switch branch."></a>Stash: is useful when we have uncommitted changes and need to switch branch.</h2><p>$ git stash<br>$ git stash apply<br>$ git stash list<br>$ git stash clear<br>$ git stash pop<br>$ git stash drop</p>
+<h2 id="Git-branch"><a href="#Git-branch" class="headerlink" title="Git branch:"></a>Git branch:</h2><ul>
+<li>Git creates the default branch(master) on first commit.</li>
+<li>Current branch will be marked with asterisk.</li>
+<li>Branch is just a reference to a commit.</li>
+</ul>
+<h2 id="Command-to-list-all-branches"><a href="#Command-to-list-all-branches" class="headerlink" title="Command to list all branches:"></a>Command to list all branches:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">$ git branch -r</div><div class="line">* master</div></pre></td></tr></table></figure>
+<h2 id="Structure-of-Master-branch"><a href="#Structure-of-Master-branch" class="headerlink" title="Structure of Master branch:"></a>Structure of Master branch:</h2><ul>
+<li>Git Master branch reference is stored in .git/refs/heads directory<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat .git/refs/heads/master</div><div class="line">f2b32d8d5f262f035e0090c7b7d2161f2ff26f45</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Command-to-create-new-branch"><a href="#Command-to-create-new-branch" class="headerlink" title="Command to create new branch:"></a>Command to create new branch:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ git branch decRelease</div><div class="line"></div><div class="line">$ git branch</div><div class="line">  decRelease</div><div class="line">* master</div><div class="line"></div><div class="line">$ cat .git/refs/heads/decRelease</div><div class="line">f2b32d8d5f262f035e0090c7b7d2161f2ff26f45</div><div class="line"></div><div class="line">$ cat .git/refs/heads/master</div><div class="line">f2b32d8d5f262f035e0090c7b7d2161f2ff26f45</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --set -upstream master origin/master</div></pre></td></tr></table></figure>
+<h2 id="Command-to-delete-a-branch"><a href="#Command-to-delete-a-branch" class="headerlink" title="Command to delete a branch"></a>Command to delete a branch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -D &lt;BranchName&gt;</div></pre></td></tr></table></figure>
+<h2 id="Head"><a href="#Head" class="headerlink" title="Head:"></a>Head:</h2><ul>
+<li>HEAD is just a reference to a branch.</li>
+<li>So it is kind of pointer to a pointer.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat .git/HEAD</div><div class="line">ref: refs/heads/master</div></pre></td></tr></table></figure>
+<h2 id="How-to-switch-to-other-branch-checkout"><a href="#How-to-switch-to-other-branch-checkout" class="headerlink" title="How to switch to other branch: checkout"></a>How to switch to other branch: checkout</h2><p>As part of checkout following two actions happens:</p>
+<ul>
+<li>HEAD reference moves to decRelease</li>
+<li>Content of decRelease is downloaded to Working-Area and Index-Area.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout decRelease</div><div class="line">Switched to branch &apos;decRelease&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-diff-command"><a href="#Git-diff-command" class="headerlink" title="Git diff command:"></a>Git diff command:</h2><ul>
+<li><p>Find difference between Working-Area and Index-Area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff</div></pre></td></tr></table></figure>
+</li>
+<li><p>Find difference between Index-Area and Repository-Area:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --cached</div></pre></td></tr></table></figure>
+</li>
+<li><p>Find difference between two commits:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff hash1..hash2</div></pre></td></tr></table></figure>
+</li>
+<li><p>Find difference between current commit and previous commit:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff head~1..head</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff head~3:Readme.txt..head:Readme.txt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff --histogram</div></pre></td></tr></table></figure>
+<h2 id="Git-reset-command"><a href="#Git-reset-command" class="headerlink" title="Git reset command:"></a>Git reset command:</h2><ul>
+<li><p>It moves the head to specified location and updated area contents based on flags.</p>
+</li>
+<li><p>Hard reset: Sets the HEAD to corresponding location and updates both Working-Area and Index-Area.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard &lt;branchName&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Mixed reset(default): Sets the HEAD to corresponding location and updates just the Index-Area.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --mixed &lt;branchName&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Soft reset: Just sets the HEAD to corresponding location. Does not update content of any area.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --soft head~1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Gitk-git-UI-tool"><a href="#Gitk-git-UI-tool" class="headerlink" title="Gitk: git UI tool"></a>Gitk: git UI tool</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitk</div></pre></td></tr></table></figure>
+<h2 id="Merge-command"><a href="#Merge-command" class="headerlink" title="Merge command:"></a>Merge command:</h2><ul>
+<li><p>You are on master branch and want to merge with decRelease branch</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge decRelease</div></pre></td></tr></table></figure>
+</li>
+<li><p>In case of merge conflict git will place markers in the corresponding file, which need to be removed manually in Working-Area.</p>
+</li>
+<li>Use ADD to stage your merged files</li>
+<li>Use Commit to check-in the merged files. This is a special commit and it will have two PARENT tags in it.</li>
+<li>For complex merge conflicts its better to configure and use merger tool e.g. WinMerge, tourtoiseMerge</li>
+</ul>
+<h2 id="Fast-forward"><a href="#Fast-forward" class="headerlink" title="Fast-forward:"></a>Fast-forward:</h2><ul>
+<li>Generally, after merge it make sense to do merge in other direction as well</li>
+</ul>
+<h2 id="Detached-Head"><a href="#Detached-Head" class="headerlink" title="Detached Head:"></a>Detached Head:</h2><ul>
+<li>Use git checkout command with SHA1 to move head to a particular SHA1.</li>
+<li>Use normal commit to create subsequent commit points and move HEAD.</li>
+<li>At any point you can switch to master to move HEAD back to it and abandon new commits. As no pointer is pointing at newly created SHA1 references, they will be garbaged collected</li>
+<li>If you want to preserve them just create a Branch</li>
+</ul>
+<h2 id="Git-fsck-command"><a href="#Git-fsck-command" class="headerlink" title="Git fsck command:"></a>Git fsck command:</h2><ul>
+<li>find dangling and unreachable commits<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fsck --dangling --no-progress</div><div class="line">$ git fsck --unreachable --no-progress</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Clone-command"><a href="#Clone-command" class="headerlink" title="Clone command:"></a>Clone command:</h2><ul>
+<li>Copy entire .git folder from remote.</li>
+<li>Clone only copy the master branch to Working-Area.</li>
+<li>This operation makes a entry in git config about the remote repository.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/unshakeable</div><div class="line">$ git clone https://github.com/unshakeable .</div><div class="line">$ git clone https://github.com/jquery/jquery.git</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Display-all-branches-after-cloning"><a href="#Display-all-branches-after-cloning" class="headerlink" title="Display all branches after cloning:"></a>Display all branches after cloning:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --all</div></pre></td></tr></table></figure>
+<h2 id="Git-Remote-command"><a href="#Git-Remote-command" class="headerlink" title="Git Remote command:"></a>Git Remote command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ git remote</div><div class="line">$ git remote -v</div><div class="line"></div><div class="line">$ git remote add MyRemoteRepo http://github.com/helloGuy</div><div class="line"></div><div class="line">$ git remote add origin https://github.com/unshakeable.git</div><div class="line"></div><div class="line">$ git remote rm origin</div></pre></td></tr></table></figure>
+<h2 id="Git-show-ref-command"><a href="#Git-show-ref-command" class="headerlink" title="Git show-ref command:"></a>Git show-ref command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git show-ref master</div><div class="line">e25f61694ed34b220148a63cb0e7aefa5917c12c refs/heads/master</div></pre></td></tr></table></figure>
+<h2 id="Git-show-command"><a href="#Git-show-command" class="headerlink" title="Git show command:"></a>Git show command:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git show cbe1249b140dad24b2c35b15cc7e26a6f02d2277</div></pre></td></tr></table></figure>
+<h2 id="Git-push-command"><a href="#Git-push-command" class="headerlink" title="Git push command:"></a>Git push command:</h2><ul>
+<li>Push local commits to remote repo defined in git config<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git push</div><div class="line">Username for https://github.com&apos;:</div><div class="line">Password for https://github.com&apos;:</div><div class="line"></div><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-fetch-command"><a href="#Git-fetch-command" class="headerlink" title="Git fetch command:"></a>Git fetch command:</h2><ul>
+<li>Fetch&gt; Merge&gt; Push cycle<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git fetch</div><div class="line">$ git fetch origin</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Git-pull-command"><a href="#Git-pull-command" class="headerlink" title="Git pull command:"></a>Git pull command:</h2><ul>
+<li>git pull is equivalent to FETCH followed by MERGE.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Fork"><a href="#Fork" class="headerlink" title="Fork:"></a>Fork:</h2><ul>
+<li>Remote clone</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/21/Git/" data-id="cj3vnbljl0000k4xm4eik1g14" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/17/Ant/" class="article-date">
+  <time datetime="2017-02-17T15:58:48.000Z" itemprop="datePublished">2017-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/17/Ant/">Ant</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Apache Ant is a Java library and command-line tool that help building software.</li>
+<li>Ant is open source</li>
+<li>ANT: Another Neat Tool</li>
+<li><a href="http://ant.apache.org" target="_blank" rel="external">http://ant.apache.org</a></li>
+</ul>
+<h2 id="Ant-Tasks"><a href="#Ant-Tasks" class="headerlink" title="Ant Tasks"></a>Ant Tasks</h2><ul>
+<li><a href="https://ant.apache.org/manual/" target="_blank" rel="external">https://ant.apache.org/manual/</a></li>
+</ul>
+<h2 id="Ant-version"><a href="#Ant-version" class="headerlink" title="Ant version"></a>Ant version</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant -version</div><div class="line">Apache Ant(TM) version 1.10.1 compiled on February 2 2017</div></pre></td></tr></table></figure>
+<h2 id="Structure-of-build-file"><a href="#Structure-of-build-file" class="headerlink" title="Structure of build file:"></a>Structure of build file:</h2><ul>
+<li>build.xml is the default ant script file.</li>
+<li>Project is the root tag. </li>
+<li>Project consist of many targets.</li>
+<li>Targets have ant tasks.</li>
+</ul>
+<h2 id="Running-ant-build"><a href="#Running-ant-build" class="headerlink" title="Running ant build:"></a>Running ant build:</h2><ul>
+<li><p>If you just run ant command, by default ant will look for a file name build.xml in current directory.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant</div></pre></td></tr></table></figure>
+</li>
+<li><p>Explicitly provide a build file using flag:-buildfile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant -buildfile build2.xml</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Project-tag-and-default-attribute"><a href="#Project-tag-and-default-attribute" class="headerlink" title="Project tag and default attribute:"></a>Project tag and default attribute:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" ?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"FirstTest"</span> <span class="attr">default</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"hello world"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="depends-attribute-for-target-chaining"><a href="#depends-attribute-for-target-chaining" class="headerlink" title="depends attribute for target chaining:"></a>depends attribute for target chaining:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" ?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"FirstTest"</span> <span class="attr">default</span>=<span class="string">"world"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"hello"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"world"</span> <span class="attr">depends</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"world"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/17/Ant/" data-id="cj3vnblkr0006k4xm4gk2bwp6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Tools-of-the-Trade" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/16/Tools-of-the-Trade/" class="article-date">
+  <time datetime="2017-02-17T01:18:29.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/16/Tools-of-the-Trade/">Tools of the Trade</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Websites"><a href="#Websites" class="headerlink" title="Websites:"></a>Websites:</h1><ul>
+<li><a href="http://www.lipsum.com/" target="_blank" rel="external">http://www.lipsum.com/</a></li>
+<li><a href="http://placehold.it/" target="_blank" rel="external">http://placehold.it/</a></li>
+<li><a href="http://www.staticgen.com/" target="_blank" rel="external">http://www.staticgen.com/</a></li>
+<li><a href="http://www.easydefine.com/" target="_blank" rel="external">http://www.easydefine.com/</a></li>
+<li><a href="https://www.draw.io/" target="_blank" rel="external">https://www.draw.io/</a></li>
+<li><a href="https://dictation.io/" target="_blank" rel="external">https://dictation.io/</a></li>
+<li><a href="https://caniuse.com/" target="_blank" rel="external">https://caniuse.com/</a></li>
+<li><a href="http://www.mnemonicdictionary.com" target="_blank" rel="external">http://www.mnemonicdictionary.com</a></li>
+<li><a href="http://money.cnn.com/calculator/pf/cost-of-living/" target="_blank" rel="external">http://money.cnn.com/calculator/pf/cost-of-living/</a></li>
+</ul>
+<h1 id="Desktop-Tools"><a href="#Desktop-Tools" class="headerlink" title="Desktop Tools:"></a>Desktop Tools:</h1><ul>
+<li>AESCrypt - <a href="https://www.aescrypt.com/download/" target="_blank" rel="external">https://www.aescrypt.com/download/</a></li>
+<li>CCleaner</li>
+<li>VLC</li>
+<li>Handbrake</li>
+<li>Juice</li>
+<li>Paint.Net</li>
+<li>Notepad++</li>
+<li>AutoHotKey</li>
+<li>KeePass</li>
+<li>SlickRun</li>
+<li>PdfFill</li>
+<li>PdfFill Tools</li>
+</ul>
+<h1 id="Mobile"><a href="#Mobile" class="headerlink" title="Mobile:"></a>Mobile:</h1><ul>
+<li>Pod bean</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/16/Tools-of-the-Trade/" data-id="cj3vnblkm0005k4xmfv3xtz0o" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Emmet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/15/Emmet/" class="article-date">
+  <time datetime="2017-02-15T20:49:25.000Z" itemprop="datePublished">2017-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/15/Emmet/">Emmet</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Emmet is a HTML/CSS snippet tool.</li>
+<li>Emmet plugin is available for most editors.</li>
+<li>Emmet follows CSS syntax</li>
+<li>Emmet is Open Source</li>
+<li>Similar tools: Jade, Haml</li>
+<li>Homepage: <a href="http://emmet.io/download" target="_blank" rel="external">http://emmet.io/download</a></li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
+<li>Notepad++ &gt; Plugin &gt; Plugin Manager &gt; Show Plugin Manager &gt; Available &gt; Emmet</li>
+<li>Source: <a href="https://github.com/emmetio/npp" target="_blank" rel="external">https://github.com/emmetio/npp</a></li>
+<li>Although Emmet plugin installs Python. You might get exception while expanding. Please refer <a href="http://stackoverflow.com/questions/26110973/emmet-notepad-unknown-exception" target="_blank" rel="external">http://stackoverflow.com/questions/26110973/emmet-notepad-unknown-exception</a></li>
+<li>Try to map Tab key to Expand Abbreviation action to improve your experience. Settings &gt; Shortcut Mapper&gt; Plugin Commands &gt;Expand Abbreviation action </li>
+</ul>
+<h2 id="Emmet-Commands"><a href="#Emmet-Commands" class="headerlink" title="Emmet Commands:"></a>Emmet Commands:</h2><ul>
+<li>Type Emmet command, followed by Tab to expand to proper HTML/CSS.</li>
+<li>Use Tab to jump to various tab location in expanded HTML/CSS.</li>
+<li>Use Ctrl+Z to undo Emmet command expansion.</li>
+<li>All default Emmet commands are present inside snippet.json at “C:\Program Files (x86)\Notepad++\plugins\EmmetNPP\emmet\snippets.json”</li>
+</ul>
+<h3 id="HTML-page-template-command"><a href="#HTML-page-template-command" class="headerlink" title="HTML page template command:"></a>HTML page template command:</h3><ul>
+<li>HTML:5<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html lang=<span class="string">"en"</span>&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ID-command-”-”"><a href="#ID-command-”-”" class="headerlink" title="ID command:”#”"></a>ID command:”#”</h3><ul>
+<li>h1#myId<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1 id=<span class="string">"myId"</span>&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Class-command-”-”"><a href="#Class-command-”-”" class="headerlink" title="Class command:”.”"></a>Class command:”.”</h3><ul>
+<li>h1.myClass<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1 class=<span class="string">"myClass"</span>&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Multiple-Class-command-”-”-chaining"><a href="#Multiple-Class-command-”-”-chaining" class="headerlink" title="Multiple Class command:”.” chaining"></a>Multiple Class command:”.” chaining</h3><ul>
+<li>h1.myclass1.myclass2<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- &lt;h1 class=<span class="string">"myclass1 myclass2"</span>&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Parent-Child-command-”-gt-”"><a href="#Parent-Child-command-”-gt-”" class="headerlink" title="Parent/Child command:”&gt;”"></a>Parent/Child command:”&gt;”</h3><ul>
+<li>ul&gt;li<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Sibling-command-”-”"><a href="#Sibling-command-”-”" class="headerlink" title="Sibling command:”+”"></a>Sibling command:”+”</h3><ul>
+<li>li+li<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;li&gt;&lt;/li&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Parent-Child-and-Sibling-combo-command"><a href="#Parent-Child-and-Sibling-combo-command" class="headerlink" title="Parent/Child and Sibling combo command:"></a>Parent/Child and Sibling combo command:</h3><ul>
+<li>ul&gt;li+li<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="DIV-is-default-element-In-below-command-only-class-name-is-mentioned-so-DIV-tag-is-used-as-default"><a href="#DIV-is-default-element-In-below-command-only-class-name-is-mentioned-so-DIV-tag-is-used-as-default" class="headerlink" title="DIV is default element: In below command only class name is mentioned, so DIV tag is used as default"></a>DIV is default element: In below command only class name is mentioned, so DIV tag is used as default</h3><ul>
+<li>.header+.main+.footer<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"header"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"main"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"footer"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Grouping-command-”-”"><a href="#Grouping-command-”-”" class="headerlink" title="Grouping command:”()”"></a>Grouping command:”()”</h3><ul>
+<li>(div.foo+div.bar)<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"foo"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"bar"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Multiplication-command-”-”"><a href="#Multiplication-command-”-”" class="headerlink" title="Multiplication command:”*”"></a>Multiplication command:”*”</h3><ul>
+<li>(div.foo+div.bar)*2<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"foo"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"bar"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"foo"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;div class=<span class="string">"bar"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Level-up-Climb-up-command-”-”"><a href="#Level-up-Climb-up-command-”-”" class="headerlink" title="Level-up/Climb-up command:”^”"></a>Level-up/Climb-up command:”^”</h3><ul>
+<li>ul&gt;li^div.foo<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;div class=<span class="string">"foo"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Text-command-”-”"><a href="#Text-command-”-”" class="headerlink" title="Text command:”{}”"></a>Text command:”{}”</h3><ul>
+<li>h1{hello}<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;hello&lt;/h1&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Image-command"><a href="#Image-command" class="headerlink" title="Image command:"></a>Image command:</h3><ul>
+<li>img[src=”<a href="http://placehold.it/400x600" target="_blank" rel="external">http://placehold.it/400x600</a>“]<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://placehold.it/400x600"</span> alt=<span class="string">""</span>&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Lorem-Ipsum-command"><a href="#Lorem-Ipsum-command" class="headerlink" title="Lorem Ipsum command:"></a>Lorem Ipsum command:</h3><ul>
+<li>p&gt;Lorem<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, tenetur, vel fuga accusamus velit consectetur quibusdam eligendi maxime unde <span class="keyword">in</span> expedita et quidem laborum at ex laboriosam minima necessitatibus dicta.&lt;/p&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Number-placholder-commands"><a href="#Number-placholder-commands" class="headerlink" title="Number placholder commands:"></a>Number placholder commands:</h3><ul>
+<li>Number element with $</li>
+<li><p>ul&gt;li*3&gt;{list item $}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;list item 1&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 2&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 3&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Use additional $$$ to pad</p>
+</li>
+<li><p>ul&gt;li*3&gt;{list item $$$}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;list item 001&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 002&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 003&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Start at a different position with @</p>
+</li>
+<li><p>ul&gt;li*3&gt;{list item $@3}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;list item 3&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 4&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 5&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Reverse the order with @-</p>
+</li>
+<li>ul&gt;li*3&gt;{list item $@-}<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;list item 3&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 2&lt;/li&gt;</div><div class="line">	&lt;li&gt;list item 1&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Sample-examples"><a href="#Sample-examples" class="headerlink" title="Sample examples"></a>Sample examples</h3><ul>
+<li><p>.header&gt;h1#title</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"header"</span>&gt;</div><div class="line">&lt;h1 id=<span class="string">"title"</span>&gt;&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>.header&gt;h1#title{Hi there}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=<span class="string">"header"</span>&gt;</div><div class="line">&lt;h1 id=<span class="string">"title"</span>&gt;Hi there&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>#app&gt;.container&gt;h1.title#welcome</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">	&lt;div class=<span class="string">"container"</span>&gt;</div><div class="line">		&lt;h1 class=<span class="string">"title"</span> id=<span class="string">"welcome"</span>&gt;&lt;/h1&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/15/Emmet/" data-id="cj3vnblk00002k4xmdoiobcw7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Notepad-Tips-Tricks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/Notepad-Tips-Tricks/" class="article-date">
+  <time datetime="2017-02-15T02:36:51.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/Notepad-Tips-Tricks/">Notepad++ Tips &amp; Tricks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Default-location-where-Notepad-config-is-stored"><a href="#Default-location-where-Notepad-config-is-stored" class="headerlink" title="Default location where Notepad++ config is stored:"></a>Default location where Notepad++ config is stored:</h2><ul>
+<li>%appdata%\Notepad++</li>
+<li>Which resolves to c:\users\raj\AppData\Roaming\Notepad++</li>
+</ul>
+<h2 id="Regex-documentation"><a href="#Regex-documentation" class="headerlink" title="Regex documentation:"></a>Regex documentation:</h2><ul>
+<li><a href="https://drive.google.com/file/d/0B6a5pNHf9T1WQ3kwdTRrbnE3a2M/view" target="_blank" rel="external">https://drive.google.com/file/d/0B6a5pNHf9T1WQ3kwdTRrbnE3a2M/view</a></li>
+</ul>
+<h2 id="Config-files"><a href="#Config-files" class="headerlink" title="Config files:"></a>Config files:</h2><ul>
+<li><a href="http://docs.notepad-plus-plus.org/index.php/Configuration_Files" target="_blank" rel="external">http://docs.notepad-plus-plus.org/index.php/Configuration_Files</a></li>
+<li><a href="http://www.powercram.com/2009/12/add-open-with-notepad-to-context-menu.html" target="_blank" rel="external">http://www.powercram.com/2009/12/add-open-with-notepad-to-context-menu.html</a></li>
+</ul>
+<ul>
+<li>config.xml</li>
+<li>contextMenu.xml</li>
+<li>langs.xml</li>
+<li>shortcuts.xml</li>
+<li>styler.xml</li>
+</ul>
+<h2 id="Important-Plug-ins"><a href="#Important-Plug-ins" class="headerlink" title="Important Plug-ins"></a>Important Plug-ins</h2><ul>
+<li>NppCrypt</li>
+<li>TextFX</li>
+<li>DSpellCheck</li>
+<li>Emmet</li>
+</ul>
+<h2 id="Important-Shortcuts"><a href="#Important-Shortcuts" class="headerlink" title="Important Shortcuts:"></a>Important Shortcuts:</h2><ul>
+<li>Ctrl+F3: Select and Find next</li>
+<li>Ctrl+F2: Toggle bookmarks</li>
+<li>F2: Next bookmark</li>
+<li>Shift+F2: Previous bookmark</li>
+<li>F7: Open Search result window</li>
+</ul>
+<h2 id="Tip-Regex-Prefix-all-lines-with-a-string"><a href="#Tip-Regex-Prefix-all-lines-with-a-string" class="headerlink" title="Tip - Regex: Prefix all lines with a string"></a>Tip - Regex: Prefix all lines with a string</h2><p>Before:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">google.com</div><div class="line">yahoo.com</div></pre></td></tr></table></figure></p>
+<p>After:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://www.google.com</div><div class="line">http://www.yahoo.com</div></pre></td></tr></table></figure></p>
+<p>Find and Replace Options:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Find What: ^</div><div class="line">Replace with: http://www.</div><div class="line">Search Mode: Select Regular expression radio button</div></pre></td></tr></table></figure></p>
+<h2 id="Tip-Regex-Suffix-all-lines-with-a-string"><a href="#Tip-Regex-Suffix-all-lines-with-a-string" class="headerlink" title="Tip - Regex: Suffix all lines with a string"></a>Tip - Regex: Suffix all lines with a string</h2><p>Before:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">www.google</div><div class="line">www.yahoo</div></pre></td></tr></table></figure></p>
+<p>After:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">www.google.com</div><div class="line">www.yahoo.com</div></pre></td></tr></table></figure></p>
+<p>Find and Replace Options:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Find What: $</div><div class="line">Replace with: http://www.</div><div class="line">Search Mode: Select Regular expression radio button</div></pre></td></tr></table></figure></p>
+<h2 id="Tip-Replace-multiple-space-around-a-operator-with-single-space"><a href="#Tip-Replace-multiple-space-around-a-operator-with-single-space" class="headerlink" title="Tip - Replace multiple space around a operator with single space"></a>Tip - Replace multiple space around a operator with single space</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Find what: \s*:\s*</div><div class="line">Replace with: \x20:\x20</div></pre></td></tr></table></figure>
+<h2 id="Tip-Regex-Remove-all-lines-with-word-“hello”-in-it"><a href="#Tip-Regex-Remove-all-lines-with-word-“hello”-in-it" class="headerlink" title="Tip - Regex: Remove all lines with word “hello” in it"></a>Tip - Regex: Remove all lines with word “hello” in it</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Find what: .*hello.*</div><div class="line">Replace with: Nothing</div></pre></td></tr></table></figure>
+<h2 id="Tip-Regex"><a href="#Tip-Regex" class="headerlink" title="Tip - Regex:"></a>Tip - Regex:</h2><p>Before:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str = document.getElementById(<span class="string">"UserName"</span>).value</div></pre></td></tr></table></figure></p>
+<p>After:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"UserName"</span>).value</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Find what: .*getElementById\(</div><div class="line">Replace with: <span class="string">""</span></div></pre></td></tr></table></figure>
+<h2 id="Tip-Regex-1"><a href="#Tip-Regex-1" class="headerlink" title="Tip - Regex:"></a>Tip - Regex:</h2><p>Before:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"UserName"</span>).value</div></pre></td></tr></table></figure></p>
+<p>After:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"UserName"</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Find what: \).*</div><div class="line">Replace with: <span class="string">""</span></div></pre></td></tr></table></figure>
+<h2 id="Tip-Regex-with-parameter"><a href="#Tip-Regex-with-parameter" class="headerlink" title="Tip - Regex with parameter"></a>Tip - Regex with parameter</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Find what: (c:.*)</div><div class="line">Replace with: ]\n<span class="variable">$1</span> [</div></pre></td></tr></table></figure>
+<h2 id="Tip-How-to-“mark”-multiple-“words”"><a href="#Tip-How-to-“mark”-multiple-“words”" class="headerlink" title="Tip - How to “mark” multiple “words”"></a>Tip - How to “mark” multiple “words”</h2><ul>
+<li>Open Find dialog from the Search menu:</li>
+<li>Click on the Mark tab</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Find What: (Yahoo|Goku|Candy)</div><div class="line">Search Mode: Select Regular expression radio button</div><div class="line">Click Mark All</div></pre></td></tr></table></figure>
+<h2 id="Tip-Line-up-by-Comma-equalSign-or-clipboard-character"><a href="#Tip-Line-up-by-Comma-equalSign-or-clipboard-character" class="headerlink" title="Tip - Line up by Comma, equalSign or clipboard character"></a>Tip - Line up by Comma, equalSign or clipboard character</h2><ul>
+<li>TextFX &gt; TextFX Edit &gt; line up multiple lines by<br><img src="\images\NplusAlign.JPG" alt="Align"></li>
+</ul>
+<h2 id="Tip-Box-Selection"><a href="#Tip-Box-Selection" class="headerlink" title="Tip - Box Selection"></a>Tip - Box Selection</h2><ul>
+<li>Hold down the Alt key while doing a selection</li>
+<li>Use can also just use keyboard: Shift+Alt+DownArrow<br><img src="\images\NplusBoxSelection.JPG" alt="Align"><br><img src="\images\npp_columnMode.gif" alt="Align"></li>
+</ul>
+<h2 id="Tip-Multi-Editing-Clrl-Mouse-click-selection"><a href="#Tip-Multi-Editing-Clrl-Mouse-click-selection" class="headerlink" title="Tip - Multi-Editing(Clrl+Mouse click/selection)"></a>Tip - Multi-Editing(Clrl+Mouse click/selection)</h2><ul>
+<li>Enable Multi-Editing from Settings&gt;Preferences&gt;Editing&gt;Multi-Editing Setting&gt;Check the chekbox</li>
+<li>Press Ctrl and click at desired places to have multiple cursors appear.</li>
+<li>Continue typing as normal and typed characters will appear at each of the cursor location.</li>
+</ul>
+<h2 id="Tip-How-To-Insert-Incrementing-Numbers"><a href="#Tip-How-To-Insert-Incrementing-Numbers" class="headerlink" title="Tip - How To Insert Incrementing Numbers"></a>Tip - How To Insert Incrementing Numbers</h2><ul>
+<li>Use box selection to place cursor in front of multiple lines.</li>
+<li>Edit&gt;Column Editor…&gt;Number to Insert&gt;Fill desired values</li>
+</ul>
+<p>Before:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">aaa</div><div class="line">bbb</div><div class="line">ccc</div></pre></td></tr></table></figure></p>
+<p>After:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1aaa</div><div class="line">2bbb</div><div class="line">3ccc</div></pre></td></tr></table></figure></p>
+<h2 id="How-to-find-Nth-character-in-Notepad"><a href="#How-to-find-Nth-character-in-Notepad" class="headerlink" title="How to find Nth character in Notepad++"></a>How to find Nth character in Notepad++</h2><ul>
+<li>Press Ctrl+G and choose offset. Enter N.</li>
+</ul>
+<h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><p>1 FirstNameA LastnameB<br>100 FirstNameA LastnameB<br>1000 FirstNameA LastnameB</p>
+<p>FirstNameA LastnameB<br>FirstNameA LastnameB<br>FirstNameA LastnameB</p>
+<p>[0-9]<em>(.</em>)</p>
+<h1 id="1"><a href="#1" class="headerlink" title="\1"></a>\1</h1><p>1 FirstNameA LastnameB<br>100 FirstNameA LastnameB<br>1000 FirstNameA LastnameB</p>
+<p>FirstNameA LastnameB, 1<br>FirstNameA LastnameB, 100<br>FirstNameA LastnameB, 1000</p>
+<p>([0-9]<em>) (.</em>)</p>
+<h1 id="2-1"><a href="#2-1" class="headerlink" title="\2, \1"></a>\2, \1</h1><p>1 FirstNameA LastnameB<br>100 FirstNameA LastnameB<br>1000 FirstNameA LastnameB</p>
+<p>LastnameB, FirstNameA<br>LastnameB, FirstNameA<br>LastnameB, FirstNameA<br>[0-9]<em> ([a-zA-Z]</em>) ([a-zA-Z]*)</p>
+<h1 id="2-1-1"><a href="#2-1-1" class="headerlink" title="\2, \1"></a>\2, \1</h1><p>1 FirstNameA LastnameB<br>100 FirstNameA LastnameB<br>1000 FirstNameA LastnameB</p>
+<p>LastnameB, FirstNameA<br>LastnameB, FirstNameA<br>LastnameB, FirstNameA</p>
+<p>[0-9]<em> ([^ ]</em>) (.*)</p>
+<h1 id="2-1-2"><a href="#2-1-2" class="headerlink" title="\2, \1"></a>\2, \1</h1><p>(.<em>) - (.</em>)<br>\1. \1. - \2</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/14/Notepad-Tips-Tricks/" data-id="cj3vnbll10008k4xm6y0asfl9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-How-to-setup-Hexo-for-blogging" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/14/How-to-setup-Hexo-for-blogging/" class="article-date">
+  <time datetime="2017-02-14T20:04:22.000Z" itemprop="datePublished">2017-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/14/How-to-setup-Hexo-for-blogging/">How to setup Hexo for blogging</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Install Node and npm for windows.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;node -v</div><div class="line">v6.9.5</div><div class="line"></div><div class="line">C:\Users\unshakeable&gt;npm -v</div><div class="line">3.10.10</div></pre></td></tr></table></figure>
+</li>
+<li><p>Install hexo-cli</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;npm install hexo-cli -g</div></pre></td></tr></table></figure>
+</li>
+<li><p>Check if hexo-cli is installed properly</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;hexo -v</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Windows_NT 6.1.7601 win32 x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.9.5</div><div class="line">v8: 5.1.281.89</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.8</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 57.1</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2k</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create “My Blog” directory and CD to it and initiate blog:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;mkdir <span class="string">"My Blog"</span></div><div class="line">C:\Users\unshakeable&gt;<span class="built_in">cd</span> <span class="string">"My Blog"</span></div><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;hexo init</div></pre></td></tr></table></figure>
+</li>
+<li><p>Start Hexo server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;hexo server</div></pre></td></tr></table></figure>
+</li>
+<li><p>Check Hexo default blog page</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:4000/</div></pre></td></tr></table></figure>
+</li>
+<li><p>Create new post</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable&gt;hexo new post &lt;post-title&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Important-directories-and-files"><a href="#Important-directories-and-files" class="headerlink" title="Important directories and files:"></a>Important directories and files:</h2><ul>
+<li><p>Templates for draft, page &amp; post:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;\scaffolds</div><div class="line">- draft.md</div><div class="line">- page.md</div><div class="line">- post.md</div></pre></td></tr></table></figure>
+</li>
+<li><p>User posts directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;\<span class="built_in">source</span>\_posts</div><div class="line">- hello-world.md</div></pre></td></tr></table></figure>
+</li>
+<li><p>Main config file for Hexo blog:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;\</div><div class="line">- _config.yml</div></pre></td></tr></table></figure>
+</li>
+<li><p>Node modules for Hexo:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;\node_modules</div></pre></td></tr></table></figure>
+</li>
+<li><p>Default theme for Hexo:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Users\unshakeable\My B<span class="built_in">log</span>&gt;\themes\landscape</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Customization"><a href="#Customization" class="headerlink" title="Customization"></a>Customization</h2><ul>
+<li><p>Update Banner photo<br>“C:\Users\unshakeable\My Blog\themes\landscape\source\css\images\banner.jpg”</p>
+</li>
+<li><p>Update background-size from “cover” to “55%”<br>C:\Users\unshakeable\My Blog\themes\landscape\source\css_partial\header.styl</p>
+</li>
+<li><p>Update blog’s main config file: C:\Users\unshakeable\My Blog&gt;_config.yml</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line">title: Unshakeable</div><div class="line">subtitle: Life Lessons</div><div class="line">description:</div><div class="line">author: Mr. Unshakeable</div><div class="line">language: English</div><div class="line">timezone: EST</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/14/How-to-setup-Hexo-for-blogging/" data-id="cj3vnblku0007k4xmq9518zao" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/owasp/">OWASP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/javascript-patterns/">javascript-patterns</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/Unix-Commands/">Unix-Commands</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/ApacheWebServer/">ApacheWebServer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/21/Git/">Git</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Mr. Unshakeable<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ant | Unshakeable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Apache Ant is a Java library and command-line tool that help building software.
+Ant is open source
+ANT: Another Neat Tool
+http://ant.apache.org
+
+Ant Tasks
+https://ant.apache.org/manual/
+
+Ant version1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant">
+<meta property="og:url" content="http://yoursite.com/2017/02/17/Ant/index.html">
+<meta property="og:site_name" content="Unshakeable">
+<meta property="og:description" content="Apache Ant is a Java library and command-line tool that help building software.
+Ant is open source
+ANT: Another Neat Tool
+http://ant.apache.org
+
+Ant Tasks
+https://ant.apache.org/manual/
+
+Ant version1">
+<meta property="og:updated_time" content="2017-02-17T18:11:22.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant">
+<meta name="twitter:description" content="Apache Ant is a Java library and command-line tool that help building software.
+Ant is open source
+ANT: Another Neat Tool
+http://ant.apache.org
+
+Ant Tasks
+https://ant.apache.org/manual/
+
+Ant version1">
+  
+    <link rel="alternate" href="/atom.xml" title="Unshakeable" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Unshakeable</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Life Lessons</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Ant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/17/Ant/" class="article-date">
+  <time datetime="2017-02-17T15:58:48.000Z" itemprop="datePublished">2017-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ant
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Apache Ant is a Java library and command-line tool that help building software.</li>
+<li>Ant is open source</li>
+<li>ANT: Another Neat Tool</li>
+<li><a href="http://ant.apache.org" target="_blank" rel="external">http://ant.apache.org</a></li>
+</ul>
+<h2 id="Ant-Tasks"><a href="#Ant-Tasks" class="headerlink" title="Ant Tasks"></a>Ant Tasks</h2><ul>
+<li><a href="https://ant.apache.org/manual/" target="_blank" rel="external">https://ant.apache.org/manual/</a></li>
+</ul>
+<h2 id="Ant-version"><a href="#Ant-version" class="headerlink" title="Ant version"></a>Ant version</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant -version</div><div class="line">Apache Ant(TM) version 1.10.1 compiled on February 2 2017</div></pre></td></tr></table></figure>
+<h2 id="Structure-of-build-file"><a href="#Structure-of-build-file" class="headerlink" title="Structure of build file:"></a>Structure of build file:</h2><ul>
+<li>build.xml is the default ant script file.</li>
+<li>Project is the root tag. </li>
+<li>Project consist of many targets.</li>
+<li>Targets have ant tasks.</li>
+</ul>
+<h2 id="Running-ant-build"><a href="#Running-ant-build" class="headerlink" title="Running ant build:"></a>Running ant build:</h2><ul>
+<li><p>If you just run ant command, by default ant will look for a file name build.xml in current directory.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant</div></pre></td></tr></table></figure>
+</li>
+<li><p>Explicitly provide a build file using flag:-buildfile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c:\antDemo&gt;ant -buildfile build2.xml</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Project-tag-and-default-attribute"><a href="#Project-tag-and-default-attribute" class="headerlink" title="Project tag and default attribute:"></a>Project tag and default attribute:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" ?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"FirstTest"</span> <span class="attr">default</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"hello world"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="depends-attribute-for-target-chaining"><a href="#depends-attribute-for-target-chaining" class="headerlink" title="depends attribute for target chaining:"></a>depends attribute for target chaining:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" ?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">name</span>=<span class="string">"FirstTest"</span> <span class="attr">default</span>=<span class="string">"world"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"hello"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">target</span> <span class="attr">name</span>=<span class="string">"world"</span> <span class="attr">depends</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">echo</span> <span class="attr">message</span>=<span class="string">"world"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">target</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/02/17/Ant/" data-id="cj3vnblkr0006k4xm4gk2bwp6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/21/Git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/16/Tools-of-the-Trade/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tools of the Trade</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/owasp/">OWASP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/javascript-patterns/">javascript-patterns</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/Unix-Commands/">Unix-Commands</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/ApacheWebServer/">ApacheWebServer</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/21/Git/">Git</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Mr. Unshakeable<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
