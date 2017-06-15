@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://unshakeable.github.io/sitemap.xml 
